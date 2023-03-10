@@ -28,13 +28,34 @@ const setTransaction = asyncHandler(async (req, res) => {
 //route PUT /api/transactions/:id
 //access Private
 const updateTransaction = asyncHandler(async (req, res) => {
-  res.status(201).json({ message: `Update transaction ${req.params.id}` });
+  const transaction = await Transaction.findById(req.params.id);
+
+  if (!transaction) {
+    res.status(400);
+    throw new Error("Transaction not found");
+  }
+
+  const updatedTransaction = await Transaction.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true }
+  );
+
+  res.status(201).json(updateTransaction);
 });
 
 //route DEL /api/transactions/:id
 //access Private
 const deleteTransaction = asyncHandler(async (req, res) => {
-  res.status(201).json({ message: `Delete transaction ${req.params.id}` });
+  const transaction = await Transaction.findById(req.params.id);
+
+  if (!transaction) {
+    res.status(400);
+    throw new Error("Transaction does not exist, can not delete");
+  }
+
+  await transaction.remove();
+  res.status(201).json({ id: req.params.id });
 });
 
 module.exports = {
