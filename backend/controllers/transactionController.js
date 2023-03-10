@@ -1,15 +1,28 @@
 const asyncHandler = require("express-async-handler");
 
+const Transaction = require("../models/transactionModel");
+
 //route GET /api/transactions
 //access Private
 const getTransactions = asyncHandler(async (req, res) => {
-  res.status(200).json({ message: "Get transactions" });
+  const transaction = await Transaction.find();
+
+  res.status(200).json(transaction);
 });
 
 //route POST /api/transactions
 //access Private
 const setTransaction = asyncHandler(async (req, res) => {
-  res.status(200).json({ message: "Get transactions" });
+  if (!req.body.text) {
+    res.status(400);
+    throw new Error("Please add a Transaction Amount");
+  }
+
+  const transaction = await Transaction.create({
+    transaction: req.body.text,
+  });
+
+  res.status(200).json(transaction);
 });
 
 //route PUT /api/transactions/:id
