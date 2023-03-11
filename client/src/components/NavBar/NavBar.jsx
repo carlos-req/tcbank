@@ -1,13 +1,18 @@
 import React from "react";
 import Logo from "../Logo/Logo";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const NavBar = () => {
+  const [nav, setNav] = useState(false);
+  const handleClick = () => setNav(!nav);
+
   const navBarList = ["Home", "About Us", "Prequalify"];
 
   return (
-    <div className=" bg-white">
+    <div className=" bg-white font-display">
       <nav className=" flex items-center justify-between my-4 px-10">
         <Logo />
+        {/*Regular Nav*/}
         <ul className="flex items-center">
           {navBarList.map((navBarItem) => {
             return (
@@ -31,6 +36,11 @@ const NavBar = () => {
             Log In
           </a>
         </div>
+
+        {/*Hamburger*/}
+        <div className="md: hidden z-10">{!nav ? <FaBars /> : <FaTimes />}</div>
+
+        {/*Hamburger Menu*/}
       </nav>
     </div>
   );
