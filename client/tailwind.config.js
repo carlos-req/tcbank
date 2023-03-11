@@ -4,8 +4,13 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        display: ["Oswald"],
+        display: ["Rubik"],
         body: ['"Open Sans"'],
+      },
+      fontWeight: {
+        normal: "400",
+        bold: "500",
+        extrabold: "700",
       },
     },
   },
