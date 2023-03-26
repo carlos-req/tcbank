@@ -26,12 +26,6 @@ const NavBar = () => {
         <div className="hidden md:block">
           <a
             href="#"
-            className=" mr-4 rounded-md bg-red-500 px-3.5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500"
-          >
-            Register
-          </a>
-          <a
-            href="#"
             className="rounded-md bg-red-500 px-3.5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500"
           >
             Log In
