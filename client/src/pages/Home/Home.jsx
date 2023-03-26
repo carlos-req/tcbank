@@ -7,7 +7,7 @@ const Home = () => {
       <NavBar />
       <main className="flex justify-center mt-12">
         <div className="w-[88vw] flex  flex-col md:flex-row items-center justify-between font-display">
-          <div className="flex flex-col">
+          <div className="flex flex-col md:w-2/5">
             <p className="font-extrabold text-4xl text-red-500 md:text-black">
               REGISTER
             </p>
@@ -25,7 +25,7 @@ const Home = () => {
               </a>
             </div>
           </div>
-          <div className=" md:block md:max-w-4xl">
+          <div className=" md:block md:w-3/5 lg:max-w-4xl">
             <img classname="" src={HeroIMG} />
           </div>
         </div>
