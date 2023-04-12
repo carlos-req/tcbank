@@ -5,12 +5,16 @@ const transactionSchema = mongoose.Schema({
     type: Number,
     required: [true, "Please add an amount for this transaction."],
   },
-  description: String,
+  description: {
+    type: String,
+  },
   payment: {
     type: String,
     required: [true, "Please indicate Credit or Debit "],
   },
-  category: String,
+  category: {
+    type: String,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
