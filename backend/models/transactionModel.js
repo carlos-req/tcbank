@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 
-const transactionSchema = mongoose.Schema({
+const transactionsSchema = mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "User",
+  },
   amount: {
     type: Number,
     required: [true, "Please add an amount for this transaction."],
@@ -21,4 +26,4 @@ const transactionSchema = mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Transaction", transactionSchema);
+module.exports = mongoose.model("Transactions", transactionsSchema);
