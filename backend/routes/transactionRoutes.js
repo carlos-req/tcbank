@@ -5,7 +5,7 @@ const {
   setTransaction,
   updateTransaction,
   deleteTransaction,
-} = require("../controllers/transactionsController.js");
+} = require("../controllers/transactionController.js");
 
 //chain GET & POST req to the same route
 router.route("/").get(getTransactions).post(setTransaction);
